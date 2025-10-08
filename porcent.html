@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist de Segurança</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .checklist {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    input[type="checkbox"] {
+      min-width: 18px;
+      min-height: 18px;
+      cursor: pointer;
+      accent-color: #2ecc71; /* cor verde moderna */
+    }
+
+    label {
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    #resposta {
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 20px;
+      color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Checklist de Segurança</h1>
+
+  <div class="checklist">
+    <div class="item">
+      <input type="checkbox" value="16.6" onchange="seguranca()" id="q1">
+      <label for="q1">Sua senha do computador e das contas online tem pelo menos 8 caracteres, misturando letras, números e símbolos?</label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" value="16.6" onchange="seguranca()" id="q2">
+      <label for="q2">Você evita usar a mesma senha em vários sites e aplicativos?</label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" value="16.6" onchange="seguranca()" id="q3">
+      <label for="q3">O antivírus ou Windows Defender está atualizado e ativo?</label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" value="16.6" onchange="seguranca()" id="q4">
+      <label for="q4">Você mantém seu sistema operacional e programas atualizados (sem adiar as atualizações)?</label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" value="16.6" onchange="seguranca()" id="q5">
+      <label for="q5">Você toma cuidado antes de clicar em links ou baixar arquivos desconhecidos?</label>
+    </div>
+
+    <div class="item">
+      <input type="checkbox" value="16.6" onchange="seguranca()" id="q6">
+      <label for="q6">O backup dos seus arquivos importantes está salvo em nuvem ou em um HD externo recente?</label>
+    </div>
+  </div>
+
+  <p id="resposta">0 %</p>
+
+  <script>
+    function seguranca() {
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      var total = 0;
+
+      for (var i=0; i<checkboxes.length; i++) {
+        total += parseFloat(checkboxes[i].value);
+      }
+      var resp = document.getElementById('resposta');
+      resp.textContent = Math.round(total) + ' %';
+    }
+  </script>
+</body>
+</html>
+
